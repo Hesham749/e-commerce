@@ -7,6 +7,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { fetchProducts } from './rtk/slices/ProductsSlice';
 import ProductDetails from './components/product details/ProductDetails';
+import AllProducts from './pages/products/Products';
+import Contact from './pages/contact/Contact';
 
 function App() {
   const Products = useSelector(state=>state.products)
@@ -21,6 +23,8 @@ function App() {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/product/:id" element={<ProductDetails />} />
+      <Route path="/products" element={<AllProducts />} />
+      <Route path="/contact" element={<Contact />} />
 
     </Routes>
 

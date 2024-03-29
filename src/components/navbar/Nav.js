@@ -8,7 +8,7 @@ export default function Nav() {
     },
     {
       name: "Products",
-      path: "/",
+      path: "/products",
     },
     {
       name: "About",
@@ -16,7 +16,7 @@ export default function Nav() {
     },
     {
       name: "Contact",
-      path: "/",
+      path: "/contact",
     },
   ];
   return (
