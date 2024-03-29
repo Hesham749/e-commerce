@@ -1,10 +1,12 @@
 import './App.css';
+import { Routes, Route } from 'react-router-dom'
+import Nav from './components/navbar/Nav';
 
 function App() {
   return (
-    <div className="container">
-      <p>sdadad</p>
-    </div>
+    <>
+    <Nav />
+    </>
   );
 }
 
