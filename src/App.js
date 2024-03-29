@@ -6,10 +6,11 @@ import Home from './pages/home/Home';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { fetchProducts } from './rtk/slices/ProductsSlice';
+import ProductDetails from './components/product details/ProductDetails';
 
 function App() {
   const Products = useSelector(state=>state.products)
-  console.log(Products)
+
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(fetchProducts())
@@ -19,6 +20,7 @@ function App() {
     <Nav />
     <Routes>
       <Route path="/" element={<Home />} />
+      <Route path="/product/:id" element={<ProductDetails />} />
 
     </Routes>
 

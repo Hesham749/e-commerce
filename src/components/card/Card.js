@@ -1,7 +1,9 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function Card(props) {
-  const { title, price, description, rating, image } = props.product;
+
+  const {id, title, price, description, rating, image } = props.product;
   let stars = [];
   for (let index = 0; index < 5; index++) {
     stars.push(index);
@@ -11,19 +13,19 @@ export default function Card(props) {
   return (
     <div>
       <div className="w-full  max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-        <a href="#">
+        <Link to={`product/${id}`}>
           <img
             className="p-8 rounded-t-lg object-contain w-full h-[300px]"
             src={image}
             alt="product image"
           />
-        </a>
+        </Link>
         <div className="px-5 pb-5">
-          <a href="#">
+          <Link to={`product/${id}`}>
             <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
               {title.slice(0, 20)}
             </h5>
-          </a>
+          </Link>
           <div className="flex items-center mt-2.5 mb-5">
             <div className="flex items-center space-x-1 rtl:space-x-reverse">
               {stars.map((item, index) => {
