@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 export default function Nav() {
   const nav = [
@@ -23,8 +23,8 @@ export default function Nav() {
     <div>
       <nav className="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600">
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-          <a
-            href="https://flowbite.com/"
+          <Link
+            to="/"
             className="flex items-center space-x-3 rtl:space-x-reverse">
             <img
               src="https://flowbite.com/docs/images/logo.svg"
@@ -32,9 +32,9 @@ export default function Nav() {
               alt="Flowbite Logo"
             />
             <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
-              Flowbite
+              E-Shop
             </span>
-          </a>
+          </Link>
           <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
             {/* cart */}
             <div className="">
@@ -86,7 +86,7 @@ export default function Nav() {
               {nav.map((item) => {return (<li key={item.name}>
                 <NavLink
                   to={item.path}
-                  className="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500"
+                  className="block py-2 px-3  bg-blue-700 rounded md:bg-transparent text-gray-800 md:p-0 md:dark:text-blue-500 hover:text-blue-700"
                   aria-current="page">
                   {item.name}
                 </NavLink>
