@@ -16,6 +16,7 @@ export default function Nav() {
             </span>
           </a>
           <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+            {/* cart */}
             <div className="">
 
             <svg
