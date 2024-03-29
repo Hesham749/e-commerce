@@ -6,15 +6,15 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter as Router } from "react-router-dom";
 import store from "./rtk/Store";
 import { Provider } from "react-redux";
-// import '../node_modules/flowbite/dist/flowbite.min';
+import '../node_modules/flowbite/dist/flowbite.min';
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <Provider store={store}>
+    {/* <Provider store={store}> */}
       <Router>
         <App />
       </Router>
-    </Provider>
+    {/* </Provider> */}
   </React.StrictMode>
 );
 
