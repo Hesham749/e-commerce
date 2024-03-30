@@ -12,8 +12,8 @@ export default function Cart() {
   const dispatch = useDispatch();
   if (CartItems.length === 0) {
     return (
-      <div className="h-[76vh] pt-60 text-center">
-        <h1 className="text-6xl">cart is empty</h1>
+      <div className="min-h-[76vh] pt-20 text-center content-center">
+        <h1 className="text-3xl  lg:text-6xl">cart is empty</h1>
       </div>
     );
   }

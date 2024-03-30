@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import { addItem } from "../../rtk/slices/CartSlice";
 
 export default function ProductDetails() {
   const { id } = useParams();
@@ -10,6 +11,7 @@ export default function ProductDetails() {
   for (let index = 0; index < 5; index++) {
     stars.push(index);
   }
+  const dispatch = useDispatch()
   useEffect(() => {
     const fetchProduct = async () => {
       const res = await fetch(`https://fakestoreapi.com/products/${id}`);
@@ -149,7 +151,7 @@ export default function ProductDetails() {
                 <span className="title-font font-medium text-2xl text-gray-900">
                   ${price}
                 </span>
-                <button className="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">
+                <button onClick={() => dispatch(addItem(product))} className="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">
                   Add To Cart
                 </button>
                 <button className="rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
