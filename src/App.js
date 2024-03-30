@@ -9,6 +9,7 @@ import { fetchProducts } from './rtk/slices/ProductsSlice';
 import ProductDetails from './components/product details/ProductDetails';
 import AllProducts from './pages/products/Products';
 import Contact from './pages/contact/Contact';
+import Cart from './pages/cart/Cart';
 
 function App() {
   const Products = useSelector(state=>state.products)
@@ -25,6 +26,7 @@ function App() {
       <Route path="/product/:id" element={<ProductDetails />} />
       <Route path="/products" element={<AllProducts />} />
       <Route path="/contact" element={<Contact />} />
+      <Route path="/cart" element={<Cart />} />
 
     </Routes>
 
