@@ -28,3 +28,6 @@ html{
   box-sizing: border-box;
 
 }
+.active{
+  color: #1A56DB;
+}

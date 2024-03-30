@@ -1,28 +1,48 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { json } from "react-router-dom";
 const findProduct = (state, action) => {
   const product = state.find((product) => product.id === action.payload.id);
   return product;
 };
+const initState = JSON.parse(localStorage.getItem("cart")) || [];
+// console.log(json.(localStorage.getItem('Cart'))||'Cart')
+const addToLocal = (state) => {
+  localStorage.setItem("cart", JSON.stringify(state));
+};
 export const Cart = createSlice({
   name: "Cart",
-  initialState: [],
+  initialState: initState,
   reducers: {
     addItem: (state, action) => {
-      const product = findProduct(state, action)
-      product
-        ? (product.quantity += 1)
-        : state.push({ ...action.payload, quantity: 1 });
+      const product = findProduct(state, action);
+      if (product) {
+        product.quantity += 1;
+      } else {
+        state.push({ ...action.payload, quantity: 1 });
+      }
+      addToLocal(state);
     },
-    removeItem: (state, action) =>
-      state.filter((item) => item.id !== action.payload.id),
-    clearCart: (state, action) => [],
+    removeItem: (state, action) =>{
+      state= state.filter((item) => item.id !== action.payload.id)
+
+      addToLocal(state)
+      return state
+
+    },
+    clearCart: (state, action) => {
+      state = [];
+      addToLocal(state);
+      return state
+    },
     increaseQuantity: (state, action) => {
       const product = findProduct(state, action);
       product.quantity += 1;
+      addToLocal(state);
     },
     decreaseQuantity: (state, action) => {
       const product = findProduct(state, action);
       product.quantity -= 1;
+      addToLocal(state);
     },
   },
 });

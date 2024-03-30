@@ -21,8 +21,8 @@ export default function Nav() {
     },
   ];
   const cart = useSelector((state) => state.Cart);
-  console.log(cart.length.toString());
-  const number = cart.length.toString();
+
+  const number = cart.length?.toString();
   return (
     <div>
       <nav className="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600">
@@ -57,12 +57,11 @@ export default function Nav() {
                   strokeWidth="1.3"
                   d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7H7.312"
                 />
-
               </svg>
               <span
-                  className={`   absolute right-0 top-[-13px] text-red-600 shadow-lg  font-bold`}>
-                  {number}
-                </span>
+                className={`   absolute right-0 top-[-13px] text-red-600 shadow-lg  font-bold`}>
+                {number > 0 && number}
+              </span>
             </div>
 
             <button
@@ -99,7 +98,7 @@ export default function Nav() {
                   <li key={item.name}>
                     <NavLink
                       to={item.path}
-                      className=" block py-2 px-3  bg-blue-700 rounded md:bg-transparent text-gray-800 md:p-0 md:dark:text-blue-500 hover:text-blue-700"
+                      className=" block py-2 px-3   rounded md:bg-transparent text-gray-800 md:p-0 md:dark:text-blue-500 hover:text-blue-700"
                       aria-current="page">
                       {item.name}
                     </NavLink>
