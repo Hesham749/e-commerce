@@ -19,7 +19,7 @@ export default function Cart() {
   }
   return (
     <div>
-      <div className=" bg-gray-100 pt-20 mt-10 min-h-[72vh]">
+      <div className=" bg-gray-100 py-28  min-h-[72vh]">
         <h1 className="mb-10 text-center text-2xl font-bold">
           Cart Items {CartItems.length}
         </h1>
