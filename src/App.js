@@ -10,7 +10,6 @@ import ProductDetails from "./components/product details/ProductDetails";
 import AllProducts from "./pages/products/Products";
 import Contact from "./pages/contact/Contact";
 import Cart from "./pages/cart/Cart";
-import Nav2 from "./components/navbar/Nav2";
 
 function App() {
   const Products = useSelector((state) => state.products);
@@ -22,7 +21,6 @@ function App() {
   return (
     <>
       <Nav />
-      {/* <Nav /> */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/product/:id" element={<ProductDetails />} />

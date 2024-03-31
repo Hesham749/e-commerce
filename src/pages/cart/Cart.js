@@ -12,14 +12,14 @@ export default function Cart() {
   const dispatch = useDispatch();
   if (CartItems.length === 0) {
     return (
-      <div className="min-h-[76vh] pt-20 text-center content-center">
+      <div className="min-h-[78vh] pt-20 text-center content-center">
         <h1 className="text-3xl  lg:text-6xl">cart is empty</h1>
       </div>
     );
   }
   return (
     <div>
-      <div className=" bg-gray-100 py-28  min-h-[72vh]">
+      <div className=" bg-gray-100 py-28  min-h-[78vh]">
         <h1 className="mb-10 text-center text-2xl font-bold">
           Cart Items {CartItems.length}
         </h1>
