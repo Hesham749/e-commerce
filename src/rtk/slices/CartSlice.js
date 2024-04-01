@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { Bounce, Zoom, toast } from "react-toastify";
-
+import toast from "react-hot-toast";
+// import { toast } from "sonner";
+import icon from "../../assets/info-icon-2048x2048-tcgtx810.png";
 const findProduct = (state, action) => {
   const product = state.find((product) => product.id === action.payload.id);
   return product;
@@ -11,43 +12,30 @@ const addToLocal = (state) => {
 };
 
 const popup = (product) =>
-  toast.success(`${product.split(' ').slice(0,2).join(' ')} added to Cart`, {
-    position: "bottom-left",
-    autoClose: 500,
-    hideProgressBar: true,
-    closeOnClick: true,
-    pauseOnHover: false,
-    draggable: true,
-
-    progress: undefined,
-
-
+  toast.success(`${product.split(" ").slice(0, 2).join(" ")} added to Cart`, {
+    duration: "70",
   });
 const increasePopup = (product) =>
-  toast.info(`${product.split(' ').slice(0,2).join(' ')} quantity +1`, {
-    position: "bottom-left",
-    autoClose: 500,
-    hideProgressBar: true,
-    closeOnClick: true,
-    pauseOnHover: false,
-    draggable: true,
-    theme:'colored',
-    progress: undefined,
-
-
+  toast.success(`${product.split(" ").slice(0, 2).join(" ")} quantity +1`, {
+    iconTheme: {
+      primary: "#1E429F",
+      secondary: "#FFFAEE",
+    },
+    duration: "70",
   });
-const removePopup = (product) => toast.error(`${product.split(' ').slice(0,2).join(' ')} removed from Cart`, {
-  position: "bottom-left",
-  autoClose: 500,
-  hideProgressBar: true,
-  closeOnClick: true,
-  pauseOnHover: false,
-  draggable: true,
-  theme:'colored',
-  progress: undefined,
+const decreasePopup = (product) =>
+  toast.success(`${product.split(" ").slice(0, 2).join(" ")} quantity -1`, {
+    iconTheme: {
+      primary: "#FACA15",
+      secondary: "#FFFAEE",
+    },
+    duration: "70",
+  });
 
-
-});
+const removePopup = (product) =>
+  toast.error(`${product.split(" ").slice(0, 2).join(" ")} removed from Cart`, {
+    duration: "70",
+  });
 
 export const Cart = createSlice({
   name: "Cart",
@@ -57,7 +45,7 @@ export const Cart = createSlice({
       const product = findProduct(state, action);
       if (product) {
         product.quantity += 1;
-        increasePopup(action.payload.title)
+        increasePopup(action.payload.title);
       } else {
         state.push({ ...action.payload, quantity: 1 });
         popup(action.payload.title);
@@ -72,19 +60,21 @@ export const Cart = createSlice({
     },
     clearCart: (state, action) => {
       state = [];
-      localStorage.removeItem('cart')
+      localStorage.removeItem("cart");
+      toast.error("Cart Cleared");
       return state;
     },
     increaseQuantity: (state, action) => {
       const product = findProduct(state, action);
       product.quantity += 1;
       addToLocal(state);
-      increasePopup(action.payload.title)
+      increasePopup(action.payload.title);
     },
     decreaseQuantity: (state, action) => {
       const product = findProduct(state, action);
       product.quantity -= 1;
       addToLocal(state);
+      decreasePopup(action.payload.title)
     },
   },
 });

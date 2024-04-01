@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { addItem } from "../../rtk/slices/CartSlice";
 
+
 export default function ProductDetails() {
   const { id } = useParams();
   const [product, setProduct] = useState({});
