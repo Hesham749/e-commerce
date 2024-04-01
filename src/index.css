@@ -32,3 +32,15 @@ html{
   color: #1A56DB;
 
 }
+@media (max-width: 768px) {
+  .toast{
+    /* position: absolute; */
+
+
+    /* width: 70%!important; */
+    /* margin: 18% auto !important; */
+
+
+  }
+
+}
