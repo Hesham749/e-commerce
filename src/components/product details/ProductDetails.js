@@ -1,29 +1,29 @@
-import { useEffect, useState } from "react";
+
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { addItem } from "../../rtk/slices/CartSlice";
+import Loader from "../loader/loader";
 
 
 export default function ProductDetails() {
   const { id } = useParams();
-  const [product, setProduct] = useState({});
-  const { title, price, rating, description, image } = product;
+
+  const Products = useSelector((state) => state.products);
+  const product =  Products.find(item =>item.id === +id);
+  
+
+  const { title, price, rating, description, image } = product||{};
   let stars = [];
   for (let index = 0; index < 5; index++) {
     stars.push(index);
   }
   const dispatch = useDispatch()
-  useEffect(() => {
-    const fetchProduct = async () => {
-      const res = await fetch(`https://fakestoreapi.com/products/${id}`);
-      const data = await res.json();
 
-      setProduct(data);
-    };
 
-    fetchProduct();
-  }, []);
-
+  const products = useSelector((state) => state.products);
+  if (products.length < 1) {
+    return <Loader />;
+  } else
   return (
     <div>
       <section className="text-gray-600 body-font overflow-hidden">

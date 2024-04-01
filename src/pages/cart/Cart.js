@@ -116,7 +116,7 @@ export default function Cart() {
             </button>
             <div className="flex justify-between items-center mt-3 ">
             <Button color={'gray'} onClick={() => dispatch(clearCart())} className="hover:text-red-600 transition duration-0">Clear Cart</Button>
-            <Link to={'/products'}  color={'gray'} className="cursor-pointer hover:text-black text-gray-600 ">Continue Sopping </Link>
+            <Link to={'/products'}  color={'gray'} className="cursor-pointer hover:text-black text-gray-600 ">{'<--Continue Sopping'} </Link>
 
             </div>
           </div>

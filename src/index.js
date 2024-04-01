@@ -22,7 +22,7 @@ root.render(
 
         <Toaster position="top-center"  />
         T
-        
+
         <App />
       </Router>
     </Provider>

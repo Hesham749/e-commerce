@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import toast from "react-hot-toast";
+import icon from '../../assets/info-icon-2048x2048-tcgtx810.png'
 
 const findProduct = (state, action) => {
   const product = state.find((product) => product.id === action.payload.id);
@@ -24,6 +25,7 @@ const increasePopup = (product) =>
   });
 const decreasePopup = (product) =>
   toast.success(`${product.split(" ").slice(0, 2).join(" ")} quantity -1`, {
+
     iconTheme: {
       primary: "#FACA15",
       secondary: "#FFFAEE",

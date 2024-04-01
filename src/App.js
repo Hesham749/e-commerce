@@ -1,5 +1,5 @@
 import "./App.css";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Outlet } from "react-router-dom";
 import Nav from "./components/navbar/Nav";
 import Footer from "./components/footer/Footer";
 import Home from "./pages/home/Home";
@@ -12,7 +12,7 @@ import Contact from "./pages/contact/Contact";
 import Cart from "./pages/cart/Cart";
 
 function App() {
-  const Products = useSelector((state) => state.products);
+
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -23,8 +23,12 @@ function App() {
       <Nav />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/product/:id" element={<ProductDetails />} />
+        <Route path="/products/product/:id" exact element={<ProductDetails />} />
         <Route path="/products" element={<AllProducts />} />
+        <Route path="/products/:cat" element={<AllProducts />} />
+        {/* <Route path="/products" element={<Outlet />} >
+
+        </Route> */}
         <Route path="/contact" element={<Contact />} />
         <Route path="/cart" element={<Cart />} />
       </Routes>
