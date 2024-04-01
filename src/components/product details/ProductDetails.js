@@ -11,8 +11,7 @@ export default function ProductDetails() {
 
   const Products = useSelector((state) => state.products);
   const product =  Products.find(item =>item.id === +id);
-  console.log('id:'+id)
-  console.log(product)
+
 
 
 
