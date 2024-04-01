@@ -33,9 +33,9 @@ export default function AllProducts() {
 
       <Button.Group className="md:flex md:justify-center grid grid-cols-2 container sm:w-3/5 md:w-full md:flex-nowrap"  >
 
-
-      <Button color="gray" className="text-blue-600"><Link to={'/products'}>AllProducts</Link></Button>
-      {categories.map((cat,index) =>(<Button key={index} color="gray" className="text-blue-600 rounded-md"><Link to={`/products/${cat}`}>{cat}</Link></Button>))}
+      <Link to={'/products'}>
+      <Button color="gray" className="text-blue-600">AllProducts</Button></Link>
+      {categories.map((cat,index) =>(<Link key={index} to={`/products/${cat}`}><Button  color="gray" className="text-blue-600 rounded-md">{cat}</Button></Link>))}
 
     </Button.Group>
     </div>
