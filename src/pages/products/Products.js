@@ -1,7 +1,7 @@
 
 import { useSelector } from "react-redux";
 import Card from "../../components/card/Card";
-import { Button } from "flowbite-react";
+import { Button,ButtonGroup } from "flowbite-react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import Loader from "../../components/loader/loader";
 import { useEffect } from "react";
