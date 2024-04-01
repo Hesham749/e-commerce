@@ -54,10 +54,10 @@ export default function Nav2() {
                   d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7H7.312"
                 />
               </svg>
-              <span
-                className={`   absolute right-0 top-[-13px] text-red-600 shadow-lg  font-bold`}>
-                {number > 0 && number}
-              </span>
+
+                {number > 0 &&  <span
+                className={` w-4 h-4 p-[10px]   flex items-center justify-center content-center absolute right-[-3px] top-[-10px] text-gray-50 rounded-full bg-red-600 shadow-lg  font-semibold`}>{number}</span>}
+
             </div>
           </Link>
           {/*  //? if you want to change the icon you can wrap the toggle with relative div and add any icon then make the toggle opacity  */ }
