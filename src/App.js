@@ -10,6 +10,7 @@ import ProductDetails from "./components/product details/ProductDetails";
 import AllProducts from "./pages/products/Products";
 import Contact from "./pages/contact/Contact";
 import Cart from "./pages/cart/Cart";
+import NotFound from "./pages/not found/NotFound";
 
 function App() {
 
@@ -23,14 +24,16 @@ function App() {
       <Nav />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/products/product/:id" exact element={<ProductDetails />} />
-        <Route path="/products" element={<AllProducts />} />
-        <Route path="/products/:cat" element={<AllProducts />} />
-        {/* <Route path="/products" element={<Outlet />} >
+        <Route path="/product/:id" exact element={<ProductDetails />} />
+        <Route path="/products" element={<Outlet />} >
+        <Route path="" element={<AllProducts />} />
+        <Route path=":cat" element={<AllProducts />} />
 
-        </Route> */}
+        </Route>
         <Route path="/contact" element={<Contact />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="*" element={<NotFound />} />
+
       </Routes>
 
       <Footer />
