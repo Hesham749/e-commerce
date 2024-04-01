@@ -1,8 +1,9 @@
 
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import {  useParams } from "react-router-dom";
 import { addItem } from "../../rtk/slices/CartSlice";
 import Loader from "../loader/loader";
+
 
 
 export default function ProductDetails() {
@@ -10,7 +11,10 @@ export default function ProductDetails() {
 
   const Products = useSelector((state) => state.products);
   const product =  Products.find(item =>item.id === +id);
-  
+  console.log('id:'+id)
+  console.log(product)
+
+
 
   const { title, price, rating, description, image } = product||{};
   let stars = [];
@@ -113,8 +117,8 @@ export default function ProductDetails() {
               </div>
               <p className="leading-relaxed">{description}</p>
               <div className="flex mt-6 items-center pb-5 border-b-2 border-gray-100 mb-5">
-                {product.category === "men's clothing" ||
-                product.category === "women's clothing" ? (
+                {product?.category === "men's clothing" ||
+                product?.category === "women's clothing" ? (
                   <div className="flex">
                     <span className="mr-3">Color</span>
                     <button className="border-2 border-gray-300 rounded-full w-6 h-6 focus:outline-none"></button>
@@ -122,7 +126,7 @@ export default function ProductDetails() {
                     <button className="border-2 border-gray-300 ml-1 bg-indigo-500 rounded-full w-6 h-6 focus:outline-none"></button>
                   </div>
                 ) : null}
-                {product.category !== "electronics" && (
+                {product?.category !== "electronics" && (
                   <div className="flex ml-6 items-center">
                     <span className="mr-3">Size</span>
                     <div className="relative">

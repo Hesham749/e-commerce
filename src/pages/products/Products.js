@@ -1,9 +1,10 @@
-import React from "react";
+
 import { useSelector } from "react-redux";
 import Card from "../../components/card/Card";
 import { Button } from "flowbite-react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import Loader from "../../components/loader/loader";
+import { useEffect } from "react";
 
 export default function AllProducts() {
   const {cat}= useParams()
@@ -13,6 +14,16 @@ export default function AllProducts() {
   )
 
   const categories = ["electronics","jewelery","men's clothing","women's clothing"]
+  const navigate = useNavigate()
+  useEffect(() => {
+    if ((!categories.find(item => item ===cat
+
+    ))&&(cat!== undefined)) {
+      navigate('*')
+    }
+
+  }, []);
+
   if (products.length < 1) {
     return <Loader />;
   } else
