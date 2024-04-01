@@ -29,7 +29,7 @@ export default function AllProducts() {
   } else
   return (
     <>
-    <div className="container mt-40 ">
+    <div className="container md:mt-40 mt-20 ">
 
       <Button.Group className="md:flex md:justify-center grid grid-cols-2 container sm:w-3/5 md:w-full md:flex-nowrap"  >
 
