@@ -1,7 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import toast from "react-hot-toast";
-// import { toast } from "sonner";
-import icon from "../../assets/info-icon-2048x2048-tcgtx810.png";
+
 const findProduct = (state, action) => {
   const product = state.find((product) => product.id === action.payload.id);
   return product;
@@ -13,7 +12,7 @@ const addToLocal = (state) => {
 
 const popup = (product) =>
   toast.success(`${product.split(" ").slice(0, 2).join(" ")} added to Cart`, {
-    duration: "70",
+    duration: "120",
   });
 const increasePopup = (product) =>
   toast.success(`${product.split(" ").slice(0, 2).join(" ")} quantity +1`, {
@@ -21,7 +20,7 @@ const increasePopup = (product) =>
       primary: "#1E429F",
       secondary: "#FFFAEE",
     },
-    duration: "70",
+    duration: "120",
   });
 const decreasePopup = (product) =>
   toast.success(`${product.split(" ").slice(0, 2).join(" ")} quantity -1`, {
@@ -29,12 +28,12 @@ const decreasePopup = (product) =>
       primary: "#FACA15",
       secondary: "#FFFAEE",
     },
-    duration: "70",
+    duration: "120",
   });
 
 const removePopup = (product) =>
   toast.error(`${product.split(" ").slice(0, 2).join(" ")} removed from Cart`, {
-    duration: "70",
+    duration: "120",
   });
 
 export const Cart = createSlice({
@@ -61,7 +60,7 @@ export const Cart = createSlice({
     clearCart: (state, action) => {
       state = [];
       localStorage.removeItem("cart");
-      toast.error("Cart Cleared");
+      toast.error("Cart Cleared",{duration:'120'});
       return state;
     },
     increaseQuantity: (state, action) => {
