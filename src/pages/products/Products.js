@@ -31,7 +31,7 @@ export default function AllProducts() {
     <>
     <div className="container md:mt-40 mt-20 ">
 
-      <Button.Group className="md:flex md:justify-center grid grid-cols-2 container sm:w-3/5 md:w-full md:flex-nowrap"  >
+      <Button.Group className="  flex justify-center items-center flex-wrap container  md:w-full md:flex-nowrap"  >
 
       <Link to={'/products'}>
       <Button color="gray" className="text-blue-600">AllProducts</Button></Link>
