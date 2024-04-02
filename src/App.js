@@ -13,8 +13,6 @@ import Cart from "./pages/cart/Cart";
 import NotFound from "./pages/not found/NotFound";
 
 function App() {
-
-
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchProducts());
@@ -25,15 +23,13 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/product/:id" exact element={<ProductDetails />} />
-        <Route path="/products" element={<Outlet />} >
-        <Route path="" element={<AllProducts />} />
-        <Route path=":cat" element={<AllProducts />} />
-
+        <Route path="/products" element={<Outlet />}>
+          <Route path="" element={<AllProducts />} />
+          <Route path=":cat" element={<AllProducts />} />
         </Route>
         <Route path="/contact" element={<Contact />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="*" element={<NotFound />} />
-
       </Routes>
 
       <Footer />
