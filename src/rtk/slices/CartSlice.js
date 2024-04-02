@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import toast from "react-hot-toast";
-import icon from '../../assets/info-icon-2048x2048-tcgtx810.png'
+
 
 const findProduct = (state, action) => {
   const product = state.find((product) => product.id === action.payload.id);
